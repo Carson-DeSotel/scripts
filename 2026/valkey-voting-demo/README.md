@@ -47,10 +47,10 @@ You get this as output, showing how we can store metadata about the game state a
 3) "role"
 4) "Innocent"
 127.0.0.1:6379> LRANGE ABCD:1:votes 0 -1
-1) "12"
-2) "22"
-3) "35"
-4) "42"
+1) "2"
+2) "2"
+3) "5"
+4) "2"
 ```
 
 ## Value Encoding
