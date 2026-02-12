@@ -55,7 +55,9 @@ You get this as output, showing how we can store metadata about the game state a
 
 ## Value Encoding
 
-Note that while you can use the list indices to encode the values, we could also just encode them directly in the list elements to get a concrete encoding (what if a player gets blocked from voting for a round). Then we can just keep track the offset in the app and use the modulo of that to get the vote. 
+Note that while you can use the list indices to encode the values, we could also just encode them directly in the list elements to get a concrete encoding.
+
+If a player were to be kept from voting in a round, we could still submit a default value (-1) in their place to show that they were still alive, but that their vote for the round won't count.
 
 This assumes a max player count of 9 though, so...maybe there's a better approach to encode the information. They're strings anyways. 
 
