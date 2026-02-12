@@ -25,10 +25,32 @@ valkey-cli # execute commands in the text block below for player stats
 echo "FLUSHALL" | valkey-cli
 ```
 
+When provided
+
 ```txt
 HGETALL room:ABCD
 HGETALL ABCD:1
 LRANGE ABCD:1:votes 0 -1
+```
+
+You get this as output, showing how we can store metadata about the game state and track votes. We can then query this once a game is over to pull game statistics, etc.
+
+```txt
+127.0.0.1:6379> HGETALL room:ABCD
+1) "owner"
+2) "Carson"
+3) "max_players"
+4) "8"
+127.0.0.1:6379> HGETALL ABCD:1
+1) "name"
+2) "Carson"
+3) "role"
+4) "Innocent"
+127.0.0.1:6379> LRANGE ABCD:1:votes 0 -1
+1) "12"
+2) "22"
+3) "35"
+4) "42"
 ```
 
 ## Value Encoding
@@ -36,6 +58,15 @@ LRANGE ABCD:1:votes 0 -1
 Note that while you can use the list indices to encode the values, we could also just encode them directly in the list elements to get a concrete encoding (what if a player gets blocked from voting for a round). Then we can just keep track the offset in the app and use the modulo of that to get the vote. 
 
 This assumes a max player count of 9 though, so...maybe there's a better approach to encode the information. They're strings anyways. 
+
+```txt
+2
+12
+r1v2
+{"r": 1, "v": 2}
+```
+
+Which would then be read in the service and parsed out appropriately.
 
 ## TODO
 - Make a demo with [Streams](https://valkey.io/topics/streams-intro/). 
