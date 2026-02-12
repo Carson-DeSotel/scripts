@@ -1,0 +1,30 @@
+HSET room:ABCD owner "Carson" max_players "8"
+
+HSET ABCD:1 name "Carson" role "Innocent"
+HSET ABCD:2 name "Arson" role "Traitor"
+HSET ABCD:3 name "Rson" role "Innocent"
+HSET ABCD:4 name "Son" role "Innocent"
+HSET ABCD:5 name "On" role "Innocent"
+HSET ABCD:6 name "N" role "Innocent"
+
+RPUSH ABCD:1:votes "12"
+RPUSH ABCD:2:votes "11"
+RPUSH ABCD:3:votes "13"
+RPUSH ABCD:4:votes "13"
+RPUSH ABCD:5:votes "13"
+RPUSH ABCD:6:votes "13"
+
+RPUSH ABCD:1:votes "22"
+RPUSH ABCD:2:votes "21"
+RPUSH ABCD:4:votes "25"
+RPUSH ABCD:5:votes "24"
+RPUSH ABCD:6:votes "24"
+
+RPUSH ABCD:1:votes "35"
+RPUSH ABCD:2:votes "31"
+RPUSH ABCD:5:votes "32"
+RPUSH ABCD:6:votes "35"
+
+RPUSH ABCD:1:votes "42"
+RPUSH ABCD:2:votes "41"
+RPUSH ABCD:6:votes "42"
