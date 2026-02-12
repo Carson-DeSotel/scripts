@@ -19,7 +19,8 @@ managed with Valkey
 ```sh
 valkey-cli < single_room.txt
 
-valkey-cli # execute commands in the text block below for player stats
+# run the shell and execute the below commands
+valkey-cli
 
 # when you're done
 echo "FLUSHALL" | valkey-cli
