@@ -59,7 +59,7 @@ Note that while you can use the list indices to encode the values, we could also
 
 If a player were to be kept from voting in a round, we could still submit a default value (-1) in their place to show that they were still alive, but that their vote for the round won't count.
 
-This assumes a max player count of 9 though, so...maybe there's a better approach to encode the information. They're strings anyways. 
+Here's a few ways we can encode values to indicate the round and the vote. (indices as rounds, encoding round as part of the value, short prefixes, JSON object)
 
 ```txt
 2
